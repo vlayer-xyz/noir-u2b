@@ -23,7 +23,7 @@ fn test_u16() {
     assert(ceil[1] == 0xff);
 }
 
-fn u24_to_u8(num: u24) -> [u8; 3] {
+pub fn u24_to_u8(num: u24) -> [u8; 3] {
     let mut out: [u8; 3] = [0; 3];
     for i in 0..3 {
         out[i] = (num >> (16 - (i * 8))) as u8;
@@ -51,7 +51,7 @@ fn test_u24() {
     assert(ceil[2] == 0xff);
 }
 
-fn u32_to_u8(num: u32) -> [u8; 4] {
+pub fn u32_to_u8(num: u32) -> [u8; 4] {
     let mut out: [u8; 4] = [0; 4];
     for i in 0..4 {
         out[i] = (num >> (24 - (i * 8))) as u8;
