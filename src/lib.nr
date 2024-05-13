@@ -1,7 +1,8 @@
 pub fn u32_to_u8(num: u32) -> [u8; 4] {
     let mut out: [u8; 4] = [0; 4];
     for i in 0..4 {
-        out[i] = (num >> (24 - (i * 8))) as u8;
+        let shift: u8 = (24 - (i * 8));
+        out[i] = (num >> shift) as u8;
     }
 
     out
@@ -32,7 +33,8 @@ fn test_u32() {
 pub fn u64_to_u8(num: u64) -> [u8; 8] {
     let mut out: [u8; 8] = [0; 8];
     for i in 0..8 {
-        out[i] = (num >> (56 - (i * 8))) as u8;
+        let shift: u8 = 56 - (i * 8);
+        out[i] = (num >> shift) as u8;
     }
 
     out
